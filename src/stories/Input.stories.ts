@@ -77,6 +77,7 @@ export const Validation : Story= {
         label:"Validation",
         customClassName:"border-red-300 focus:border-red-600",
         asterick:true,
+        required:true,
     }
 }
 
@@ -88,6 +89,7 @@ export const Pattern : Story= {
         placeholder: "123-45-678",
         pattern: "[0-9]{3}-[0-9]{2}-[0-9]{3}",
         error: "Required",
+        required:true,
     }
 }
 
