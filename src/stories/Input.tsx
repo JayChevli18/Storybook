@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import "../app/globals.css";
 
 export interface InputProps {
@@ -11,7 +11,7 @@ export interface InputProps {
     value?: string;
     disabled?: boolean;
     backgroundColor?: string;
-    onChange?: () => void;
+    onChange?: (event:any) => void;
     error?: string;
     pattern?: string;
     list?: string;
@@ -23,7 +23,18 @@ export interface InputProps {
 }
 
 
-export const Input = ({ id, name, label, labelClassName, placeholder, type, value, disabled=false, backgroundColor, error, pattern, list, listoptions = [], customClassName, allowSearch=false, asterick=false, onChange, required=false }: InputProps) => {
+export const Input =  ({ id, name, label, labelClassName, placeholder, type, value, disabled = false, backgroundColor, error, pattern, list, listoptions = [], customClassName, allowSearch = false, asterick = false, onChange, required = false }: InputProps) => {
+    const [inputValue, setInputValue] = useState("");
+
+    const handleChange = (event: any) => {
+        setInputValue(event.target.value);
+        // console.log(inputValue);
+        if (onChange) {
+            onChange(event);
+        }
+    };
+
+    console.log(inputValue);
     return (
         <div className="grid w-full items-center gap-1.5 relative">
             <div className="flex items-center">
@@ -50,10 +61,10 @@ export const Input = ({ id, name, label, labelClassName, placeholder, type, valu
                     name={name}
                     type={type}
                     placeholder={placeholder}
-                    value={value}
+                    value={inputValue}
                     disabled={disabled}
-                    onChange={onChange}
-                    className={`border rounded-md p-2 w-[250px] pl-${allowSearch ? "9" : "2"} focus:outline-none ${customClassName || "border-gray-300 focus:border-black"}`}
+                    onChange={handleChange}
+                    className={`border rounded-md p-2 w-[250px] focus:outline-none ${customClassName || "border-gray-300 focus:border-black"} ${allowSearch ? "pl-10" : ""}`}
                     style={{ backgroundColor }}
                     pattern={pattern}
                     required={required}
