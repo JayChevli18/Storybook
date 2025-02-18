@@ -1,6 +1,5 @@
-import React, { useState } from "react";
 import { Input } from "./Input";
-import type { Meta, StoryObj, StoryFn } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { action } from "@storybook/addon-actions";
 
 const meta = {
