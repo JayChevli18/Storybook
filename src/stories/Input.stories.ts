@@ -15,6 +15,7 @@ const meta = {
         backgroundColor: { control: 'color' },
         onChange: {action:"onChange"}
     },
+
 } satisfies Meta<typeof Input>;
 
 export default meta;
@@ -118,5 +119,16 @@ export const SearchInput: Story = {
         allowSearch: true,
         label: "Search",
         labelClassName: "text-blue-500"
+    }
+}
+
+export const WithClearButton: Story={
+    args:{
+        id: "clear",
+        name: "clear",
+        placeholder: "Type and Clear...",
+        type: "text",
+        onChange: action("onChange"),
+        clear: true,
     }
 }

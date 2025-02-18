@@ -1,5 +1,6 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import "../app/globals.css";
+import { Button } from "./Button";
 
 export interface InputProps {
     id: string;
@@ -11,7 +12,7 @@ export interface InputProps {
     value?: string;
     disabled?: boolean;
     backgroundColor?: string;
-    onChange?: (event:any) => void;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     error?: string;
     pattern?: string;
     list?: string;
@@ -20,13 +21,35 @@ export interface InputProps {
     allowSearch?: boolean;
     asterick?: boolean;
     required?: boolean;
+    clear?: boolean;
 }
 
 
-export const Input =  ({ id, name, label, labelClassName, placeholder, type, value, disabled = false, backgroundColor, error, pattern, list, listoptions = [], customClassName, allowSearch = false, asterick = false, onChange, required = false }: InputProps) => {
-    const [inputValue, setInputValue] = useState("");
+export const Input = (
+    {
+        id,
+        name,
+        label,
+        labelClassName,
+        placeholder,
+        type,
+        value,
+        disabled = false,
+        backgroundColor,
+        error,
+        pattern,
+        list,
+        listoptions = [],
+        customClassName,
+        allowSearch = false,
+        asterick = false,
+        onChange,
+        required = false,
+        clear = false
+    }: InputProps) => {
+    const [inputValue, setInputValue] = useState(value || "");
 
-    const handleChange = (event: any) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value);
         // console.log(inputValue);
         if (onChange) {
@@ -34,7 +57,7 @@ export const Input =  ({ id, name, label, labelClassName, placeholder, type, val
         }
     };
 
-    console.log(inputValue);
+    // console.log(inputValue);
     return (
         <div className="grid w-full items-center gap-1.5 relative">
             <div className="flex items-center">
@@ -70,6 +93,16 @@ export const Input =  ({ id, name, label, labelClassName, placeholder, type, val
                     required={required}
                     list={list}
                 />
+                { clear &&
+                    <Button label={
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 6L18 18M6 18L18 6" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    }
+                        onClick={() => setInputValue('')}
+                        className="border-none text-gray-500 absolute right-2 top-1/2 -translate-y-1/2">
+                    </Button>
+                }
             </div>
 
             {list && listoptions.length > 0 && (
