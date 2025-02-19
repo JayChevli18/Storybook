@@ -18,7 +18,7 @@ export interface CustomButtonProp {
     onClick?: () => void;
     className?: string;
     scale?: boolean;
-
+    theme?:'light' | 'dark';
 }
 
 export const CustomButton = ({
@@ -34,7 +34,8 @@ export const CustomButton = ({
     icon,
     iconPosition = 'left',
     gap,
-    className
+    className,
+    theme,
 }: CustomButtonProp) => {
 
     const sizeStyle = {
@@ -49,7 +50,7 @@ export const CustomButton = ({
     const variantStyle = {
         default: 'bg-white font-semibold dark:text-white dark:bg-black',
         primary: 'bg-black text-white dark:text-white font-semibold dark:bg-black',
-        'outline-primary': 'bg-white border font-semibold border-black dark:border dark:border-white dark:text-white dark:bg-white',
+        'outline-primary': 'bg-white border font-semibold border-black dark:border dark:border-white dark:text-black dark:bg-white',
         'secondary': 'bg-gray-300 font-semibold text-black border border-gray-500 dark:bg-gray-100 dark:text-white dark:border dark:border-gray-300',
         'outline-secondary': 'bg-white font-semibold text-gray-500 border border-gray-500  ',
         'rounded-primary': `bg-black text-white dark:text-white font-semibold dark:bg-black rounded-${rounded}`,
@@ -68,7 +69,7 @@ export const CustomButton = ({
     )
 
     return (
-        <div className="w-full">
+        <div className={`w-full  ${theme==='dark'? 'dark' : ''}`} >
         <button
             id={id}
             name={name}

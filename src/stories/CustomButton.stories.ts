@@ -4,8 +4,16 @@ import type { Meta, StoryObj } from "@storybook/react";
 const meta={
     title:"Jay/CustomButton",
     component: CustomButton,
+    
     parameters:{
-        layout: "centered"
+        layout: "centered",
+        // backgrounds: {
+        //     default: "dark",
+        //     values: [
+        //         { name: "light", value: "#ffffff" },
+        //         { name: "dark", value: "#333333" },
+        //     ],
+        // },
     },
     tags: ['autodocs'],
 } satisfies Meta<typeof CustomButton>;
@@ -19,6 +27,7 @@ export const DefaultButton: Story={
         name:"btn1",
         children:"Default",
         onClick: ()=>{alert("Default")},
+        theme: 'dark',
         // size:"lg",
         // variant:"rounded-outline-primary",
         // rounded:'lg',
@@ -46,7 +55,9 @@ export const OutlinePrimaryButton: Story={
         name:"btn2",
         children: "Outline Primary",
         onClick: ()=>{alert("Outline Primary")},
-        variant: "outline-primary"
+        variant: "outline-primary",
+        theme: 'dark',
+
     }
 }
 
