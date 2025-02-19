@@ -34,7 +34,7 @@ export const Checkbox = ({
 
     const baseStyle = 'peer cursor-pointer transition-all appearance-none rounded-none border border-gray-500 dark:border-gray-600 checked:bg-blue-600 checked:dark:bg-gray-700 checked:border-blue-600 focus:ring focus:ring-blue-500 focus:ring-offset-2 focus:ring-[2px] focus:ring-offset-white dark:focus:ring-offset-gray-900 focus:outline-none';
     return (
-        <div className="flex items-center gap-x-3 relative">
+        <div className="flex items-center justify-center gap-x-3 relative">
             <div className="flex items-start relative">
                 <input type="checkbox"
                     className={twMerge(sizeStyle,baseStyle)}

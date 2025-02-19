@@ -1,31 +1,38 @@
 import { Checkbox } from "./Checkbox";
 import type { Meta, StoryObj } from "@storybook/react";
 
-const meta={
-    title:"Jay/Checkbox",
-    component:Checkbox,
-    parameters:{
-        layout:"centered"
+const meta = {
+    title: "Jay/Checkbox",
+    component: Checkbox,
+    parameters: {
+        layout: "centered",
+        // backgrounds: {
+        //     default: "dark",
+        //     values: [
+        //         { name: "light", value: "#ffffff" },
+        //         { name: "dark", value: "#333333" },
+        //     ],
+        // },
     },
-    tags:['autodocs'],
+    tags: ['autodocs'],
 } satisfies Meta<typeof Checkbox>;
 
 export default meta;
-type Story=StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>
 
-export const Default: Story={
-    args:{
-        id:"c1",
-        name:"c1",
-        checkboxSize:"md",
+export const Default: Story = {
+    args: {
+        id: "c1",
+        name: "c1",
+        checkboxSize: "md",
     }
 }
 
-export const WithLabel: Story={
-    args:{
+export const WithLabel: Story = {
+    args: {
         ...Default.args,
-        label:"Checkbox",
+        label: "Checkbox",
         asterick: true,
-        labelClassName:"text-gray-900 text-md font-normal"
+        labelClassName: "text-gray-900 text-md font-normal"
     }
 }
