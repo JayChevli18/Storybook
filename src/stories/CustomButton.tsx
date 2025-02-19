@@ -1,5 +1,5 @@
 import React from "react";
-import "../app/globals.css";
+// import "../app/globals.css";
 import { twMerge } from "tailwind-merge";
 import { DynamicIcon } from "lucide-react/dynamic";
 //import type { IconNames } from "lucide-react";
@@ -47,12 +47,12 @@ export const CustomButton = ({
 
 
     const variantStyle = {
-        default: 'bg-none font-semibold dark:text-white dark: bg-black',
-        primary: 'bg-black text-white dark: text-white font-semibold dark:bg-black',
+        default: 'bg-white font-semibold dark:text-white dark:bg-black',
+        primary: 'bg-black text-white dark:text-white font-semibold dark:bg-black',
         'outline-primary': 'bg-white border font-semibold border-black dark:border dark:border-white dark:text-white dark:bg-white',
         'secondary': 'bg-gray-300 font-semibold text-black border border-gray-500 dark:bg-gray-100 dark:text-white dark:border dark:border-gray-300',
-        'outline-secondary': 'bg-white font-semibold text-gray-500 border border-gray-400  ',
-        'rounded-primary': `bg-black text-white dark: text-white font-semibold dark:bg-black rounded-${rounded}`,
+        'outline-secondary': 'bg-white font-semibold text-gray-500 border border-gray-500  ',
+        'rounded-primary': `bg-black text-white dark:text-white font-semibold dark:bg-black rounded-${rounded}`,
         'rounded-outline-primary': `bg-white border font-semibold border-black dark:border dark:border-white dark:text-white dark:bg-white rounded-${rounded}`,
     }
 
@@ -68,16 +68,18 @@ export const CustomButton = ({
     )
 
     return (
+        <div className="w-full">
         <button
             id={id}
             name={name}
             onClick={onClick}
-            className={` ${disabled ? "hover:cursor-not-allowed" : ""}  || ${className} ||  ${combinedStyles}  `}
+            className={`${disabled ? "hover:cursor-not-allowed" : ""}  || ${className} ||  ${combinedStyles}  `}
             disabled={disabled}
         >
             {icon && iconPosition === 'left' && <DynamicIcon name={icon as any} size={20} />}
             {children}
             {icon && iconPosition === 'right' && <DynamicIcon name={icon as any} size={20} />}
         </button>
+        </div>
     )
 }
