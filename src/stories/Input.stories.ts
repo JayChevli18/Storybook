@@ -6,7 +6,7 @@ const meta = {
     title: "Jay/Input",
     component: Input,
     parameters: {
-        layout: "centered"
+        layout: "padded"
     },
     tags: ['autodocs'],
     //Component Args -  defined args at the component level; they will apply to all the component's stories unless you overwrite them

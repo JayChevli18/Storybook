@@ -66,7 +66,7 @@ export const Input = (
                     asterick && <span className="text-red-600 ml-1 font-bold ">*</span>
                 }
             </div>
-            <div className="relative w-[250px]">
+            <div className="relative w-full">
                 {allowSearch && (
                     <svg
                         className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500"
@@ -87,7 +87,7 @@ export const Input = (
                     value={inputValue}
                     disabled={disabled}
                     onChange={handleChange}
-                    className={`${ disabled? 'hover:cursor-not-allowed' : ''} border rounded-md p-2 w-[250px] focus:outline-none ${customClassName || "border-gray-300 focus:border-black"} ${allowSearch ? "pl-10" : ""}`}
+                    className={`${ disabled? 'hover:cursor-not-allowed' : ''} border rounded-md p-2 w-full focus:outline-none ${customClassName || "border-gray-300 focus:border-black"} ${allowSearch ? "pl-10" : ""}`}
                     style={{ backgroundColor }}
                     pattern={pattern}
                     required={required}
